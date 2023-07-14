@@ -1,0 +1,127 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: aliceblue;
+}
+.nav-head ul{
+    list-style-type: none;
+    color: aliceblue;
+    display: flex;
+    gap: 30px;
+    justify-content: right;
+    font-family: Monument Grotesk Mono,Monaco,Courier,monospace;
+    font-weight: 500;
+    font-size: 25px;
+    flex-wrap: nowrap;
+}
+.nav-head ul li{
+    flex: 1 1 auto;
+}
+.nav-head ul li:first-of-type{
+    flex: 1 1 40%;
+}
+a{
+    color: azure;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.nav-head{
+    padding-top: 1rem;
+}
+.main-body1{
+  padding: 11rem 10%;
+  font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+h1{
+  font-size: 70px;
+  font-family:  Courier, monospace;
+  line-height: 5rem;
+  font-weight: 600;
+}
+.main-body1 button{
+  font-family: Courier, monospace;
+  height: max-content;
+  padding: 2rem;
+  font-size: 25px;
+}
+.main-body2{
+  padding: 10%;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+}
+.main-body3{
+  padding: 10%;
+  display: grid;
+  grid-template: "a b" "c d" "e f";
+  gap: 1rem;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  align-items: center;
+}
+.main-body3 button{
+  font-family: Courier, monospace;
+  height: max-content;
+  padding: 1rem;
+  font-size: 15px;
+  border-radius: 30px;  
+}
+#a-grid{
+  margin: 50px;
+  grid: a;
+}
+#b-grid{
+  margin: 1rem;
+  grid: b;
+}
+#c-grid{
+  margin: 1rem;
+  grid: c;
+}
+#d-grid{
+  margin: 1rem;
+  grid: d;
+}
+#e-grid{
+  margin: 1rem;
+  grid: e;
+}
+#f-grid{
+  margin: 1rem;
+  grid: f;
+}
+img{
+  width: 100%;
+  border-radius: 25px;
+}
+.main-body2 button{
+  font-family: Courier, monospace;
+  height: max-content;
+  padding: 1rem 5rem;
+  font-size: 25px;
+  text-align: center;
+}
+.b1{
+  grid: b1;
+}
+.b2{
+  grid: b2;
+}
+.b3{
+  grid: b3;
+}
+.footer1{
+  padding: 5%;
+  display: grid;
+  grid-template-areas: "b1 b2 b3 b3 ";
+}
+.footer1  li{
+  list-style-type: none;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+}

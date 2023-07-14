@@ -1,0 +1,77 @@
+body{
+    padding: 5%;
+    padding-top: 0;
+}
+.coffee-img{
+    height: 5%;
+    width: 5%;
+    max-width: 30px;
+    max-height: 30px;
+}
+.heads1{
+    text-align: center;
+    background-color: #390D02;
+    width:90%;
+    border: 2px double #390D02;
+    padding: 25px;
+    color: aliceblue;
+    border-radius: 20px;
+    font-family: cursive;
+}
+.item{
+    display: inline-block;
+    width: 90%;
+    border: 2px double #390D02;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 15px;
+    min-width: 500px;
+}
+.info{
+    vertical-align: top;
+    border: 2px double #390D02;
+    min-width: 500px;
+    border: 2px double #390D02;
+    border-radius: 25px;
+    margin: 10px 0;    
+    padding: 15px;
+    margin: 10px;
+    max-width: 500px;
+}
+.pay{
+    border: 2px double #390D02;
+    min-width: 500px;
+    vertical-align: baseline;
+    margin: 10px 0;    
+    border-radius: 25px;
+    padding: 15px;
+    margin: 10px;
+    max-width: 500px;
+}
+.last{
+    border: 2px solid black;
+    text-align: center;
+    width: 90%;
+    padding: 25px;
+    border-radius: 20px;
+    font-family: cursive;
+}
+.ls-items{
+display: inline-block;
+width: 30px;
+}
+.money{
+    float: right;
+}
+.description{
+    display: block;
+}
+.sub{
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+}
+header{
+    font-weight: bold;
+}
