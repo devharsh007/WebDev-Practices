@@ -1,5 +1,5 @@
 // ? Adding DOM 
-var shop = document.querySelector("#shop");
+var shop = document.getElementById("shop");
 
 // ? Adding JSON Data
 let shopItemsData = [
@@ -32,8 +32,10 @@ let shopItemsData = [
 
 // ? Function for generating data in HTML file
 let genShop = () => {
-  return (shop.innerHTML = shopItemsData.map((x) => {   // Using map function to parsing the data from JSON file to shop div 
-    let { id, name, price, desc, img } = x      // Adding this line so that we dont have to use x again and again for parsing values
+  return (shop.innerHTML = shopItemsData.map((x) => {
+    // Using map function to parsing the data from JSON file to shop div
+    let { id, name, price, desc, img } = x
+    // Adding this line so that we dont have to use x again and again for parsing values
     return `
     <div id="prod-id${id}" class="item">       
       <img id="img" height="300" width="249" src="${img}" alt="">
@@ -61,39 +63,38 @@ genShop();
 
 
 // ? For increment of quantity
-let increment = (id) => {
-  let selectedItem = id;
-  let search = basket.find((x) => x.id === selectedItem); // Use strict equality here
-  if (search === undefined) {
-    basket.push({
-      id: selectedItem,
-      item: 1
-    });
-  } else {
-    search.item += 1;
+let increment = (id) => { 
+  let selectedItem = document.getElementById(id);
+  //? Adding item to basket
+  let search = () => {
+    basket.find((x)=>x.id === selectedItem.id)
   }
+  basket.push({
+    id: selectedItem.id,
+    item: 1
+  })
   console.log(basket);
-  update();
-}
+};
+
+// ! IDK Why ? id shows the value of id instead of 'div of ID="id"'
+// ? To access the DOM element with the ID matching the product ID, you can use the document.getElementById method. Here's an updated version of the increment function that retrieves the quantity div based on the product ID:
+// let increment = (id) => {
+//   let quantityDiv = document.getElementById(id);
+//   console.log(quantityDiv);
+// };
+
 
 // ? For decrement of quantity
-let decrement = (id) => {
-  let selectedItem = id;
-   let search = basket.find((x) => x.id === selectedItem); // Use strict equality here
-  if (search.item <= 0) return;
-  else {
-    search.item -= 1;
-  }
-  console.log(basket);
-  update();
-}
+let decrement = (id) => { 
+  let selectedItem = document.getElementById(id);
+  console.log(selectedItem.id);
+};
+
 
 // ! UPDATE FUCNTIONN IS NOT RUNNING  SHOWING ERRRORS WILL FIX 2MOROW
 
 // ? to update the quantity
-let update = (selectedItem) => {
-  console.log(basket);
- };
+let update = () => { };
 
 // ? Making a basket for cart 
 let basket = [];
