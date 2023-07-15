@@ -1,7 +1,7 @@
 // ? Adding DOM 
 var shop = document.getElementById("shop");
 
-// ? Adding JSON Data
+// Data for Shop Items JSON file
 let shopItemsData = [
   {
     id: "1",
@@ -30,15 +30,16 @@ let shopItemsData = [
   },
 ];
 
-// ? Function for generating data in HTML file
+let basket = JSON.parse(localStorage.getItem("basket")) || [];
+
+//  Function for generating the data into HTML file 
 let genShop = () => {
   return (shop.innerHTML = shopItemsData.map((x) => {
-    // Using map function to parsing the data from JSON file to shop div
-    let { id, name, price, desc, img } = x
-    // Adding this line so that we dont have to use x again and again for parsing values
+    let { id, name, price, desc, img } = x;
+    let search = basket.find((x) => x.id === id) || [];
     return `
     <div id="prod-id${id}" class="item">       
-      <img id="img" height="300" width="249" src="${img}" alt="">
+      <img height="300" width="249" src="${img}" alt="">
       <div class="details">
         <h3>${name}</h3>
         <p>${desc}</p>
@@ -46,55 +47,89 @@ let genShop = () => {
           <h2>$ ${price}</h2>
           <div class="btns">
             <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-            <div id=${id} class="quantity">0</div>
+            <div id=${id} class="quantity">${search.item === undefined ? 0 : search.item}</div>
             <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
           </div>
         </div>
       </div>
     </div>
-  `
-  }).join("")); 
-  //Adding join function so comma "," in JSON will not interfare in parsing DATA
-  //Adding "id" in Parent elemtent and Quantity so that we can give unique id to quantity of each product
-
-  // ! IDK Why but website feels a lot of slow, takes a lot of time to load maybe images
-}
-genShop();
-
-
-// ? For increment of quantity
-let increment = (id) => { 
-  let selectedItem = document.getElementById(id);
-  //? Adding item to basket
-  let search = () => {
-    basket.find((x)=>x.id === selectedItem.id)
-  }
-  basket.push({
-    id: selectedItem.id,
-    item: 1
+  `;
   })
-  console.log(basket);
+    .join(""));
+  };
+  genShop();
+  // ! IDK Why but website feels a lot of slow, takes a lot of time to load maybe images
+
+//  When item increment is pressed
+let increment = (id) => {
+  let selectedItem = id;
+  let search = basket.find((x) => x.id === selectedItem);
+
+  if (search === undefined) {
+    basket.push({
+      id: selectedItem,
+      item: 1
+    });
+  } else {
+    search.item += 1;
+  }
+  // console.log(basket);
+  update(selectedItem);
+  localStorage.setItem("basket", JSON.stringify(basket));
 };
 
-// ! IDK Why ? id shows the value of id instead of 'div of ID="id"'
-// ? To access the DOM element with the ID matching the product ID, you can use the document.getElementById method. Here's an updated version of the increment function that retrieves the quantity div based on the product ID:
-// let increment = (id) => {
-//   let quantityDiv = document.getElementById(id);
-//   console.log(quantityDiv);
-// };
+//  When decrement is pressed
+let decrement = (id) => {
+  let selectedItem = id;
+  let search = basket.find((x) => x.id === selectedItem);
+  if (search.item === 0) return;
+  else if (search === undefined) return;
+  else {
+    search.item -= 1;
+  }
+  update(selectedItem);
+  basket = basket.filter((x) => x.item !== 0);
+  localStorage.setItem("basket", JSON.stringify(basket));
+  // console.log(basket);
+};
 
+// Function to update the data  when a button is pressed
+let update = (id) => { 
+  let search = basket.find((x) => x.id === id);
+  document.getElementById(id).innerHTML = search.item;
+  // console.log(search.item);
+  calculation();
+};
+ 
 
-// ? For decrement of quantity
-let decrement = (id) => { 
-  let selectedItem = document.getElementById(id);
-  console.log(selectedItem.id);
+// Function to calculate total cart items in CartAmount
+let calculation = () => {
+  let cartIcon = document.getElementById("cartAmount");
+  cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y);
 };
 
 
-// ! UPDATE FUCNTIONN IS NOT RUNNING  SHOWING ERRRORS WILL FIX 2MOROW
 
-// ? to update the quantity
-let update = () => { };
 
-// ? Making a basket for cart 
-let basket = [];
+
+// Function to retrieve stored basket and update quantity display on page load
+window.onload = function () {
+  let storedBasket = JSON.parse(localStorage.getItem("basket")) || [];
+  basket = storedBasket;
+  updateQuantityDisplay();
+};
+
+
+// Function to update the quantity display in the UI
+let updateQuantityDisplay = () => {
+  basket.forEach((x) => {
+    document.getElementById(x.id).innerHTML = x.item;
+  });
+  calculation();
+};
+
+// !main.js:107 Uncaught TypeError: Reduce of empty array with no initial value
+//! at Array.reduce (<anonymous>)
+//! at calculation (main.js:107:50)
+//! at updateQuantityDisplay (main.js:124:3)
+ //! at window.onload (main.js:115:3)

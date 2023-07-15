@@ -94,4 +94,6 @@ text-align: center;
 .quantity{
   font-size: 26px;
 }
-
+i{
+  cursor: pointer;
+}
