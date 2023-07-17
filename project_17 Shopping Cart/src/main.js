@@ -2,33 +2,33 @@
 var shop = document.getElementById("shop");
 
 // Data for Shop Items JSON file
-let shopItemsData = [
-  {
-    id: "1",
-    name: "Casual T-Shirt",
-    price: "28",
-    desc: "Deserunt officia veniam eiusmod id eu irure occaecat aute ex voluptate. Sint culpa sint commodo Lorem id esse do et est pariatur aliquip consectetur. Enim mollit laborum aliqua duis tempor voluptate.",
-    img: "images/img-1.jpg"
-  },{
-    id: "2",
-    name: "Office T-Shirt",
-    price: "40",
-    desc: "Officia esse amet occaecat cupidatat laborum id eu dolor elit tempor aute. Veniam ex anim est eiusmod esse incididunt consectetur ea eu nostrud aute. Culpa tempor tempor nisi incididunt aliquip. Tempor voluptate anim sit enim culpa sint est voluptate proident deserunt ipsum Lorem irure. Laborum adipisicing exercitation nisi anim in. Mollit et est nisi excepteur exercitation deserunt.",
-    img: "images/img-2.jpg"
-  },{
-    id: "3",
-    name: "New T-Shirt",
-    price: "22",
-    desc: "Magna amet ipsum culpa culpa aute. Nisi cillum sint et elit sint incididunt laborum officia pariatur qui laborum cillum. Et ea pariatur incididunt do id non. Ut id et sint excepteur officia ipsum reprehenderit consequat adipisicing et sunt nulla esse.",
-    img: "images/img-3.jpg"
-  },{
-    id: "4",
-    name: "Sporty T-Shirt",
-    price: "30",
-    desc: "Sint ex veniam amet culpa cillum nostrud nostrud qui velit excepteur ea. Ullamco nulla et laboris enim nulla consectetur exercitation qui do id Lorem dolore sint. Ipsum velit id exercitation irure laboris proident incididunt minim anim magna eiusmod id Lorem magna.",
-    img: "images/img-4.jpg"
-  },
-];
+// let shopItemsData = [
+//   {
+//     id: "1",
+//     name: "Casual T-Shirt",
+//     price: "28",
+//     desc: "Deserunt officia veniam eiusmod id eu irure occaecat aute ex voluptate. Sint culpa sint commodo Lorem id esse do et est pariatur aliquip consectetur. Enim mollit laborum aliqua duis tempor voluptate.",
+//     img: "images/img-1.jpg"
+//   },{
+//     id: "2",
+//     name: "Office T-Shirt",
+//     price: "40",
+//     desc: "Officia esse amet occaecat cupidatat laborum id eu dolor elit tempor aute. Veniam ex anim est eiusmod esse incididunt consectetur ea eu nostrud aute. Culpa tempor tempor nisi incididunt aliquip. Tempor voluptate anim sit enim culpa sint est voluptate proident deserunt ipsum Lorem irure. Laborum adipisicing exercitation nisi anim in. Mollit et est nisi excepteur exercitation deserunt.",
+//     img: "images/img-2.jpg"
+//   },{
+//     id: "3",
+//     name: "New T-Shirt",
+//     price: "22",
+//     desc: "Magna amet ipsum culpa culpa aute. Nisi cillum sint et elit sint incididunt laborum officia pariatur qui laborum cillum. Et ea pariatur incididunt do id non. Ut id et sint excepteur officia ipsum reprehenderit consequat adipisicing et sunt nulla esse.",
+//     img: "images/img-3.jpg"
+//   },{
+//     id: "4",
+//     name: "Sporty T-Shirt",
+//     price: "30",
+//     desc: "Sint ex veniam amet culpa cillum nostrud nostrud qui velit excepteur ea. Ullamco nulla et laboris enim nulla consectetur exercitation qui do id Lorem dolore sint. Ipsum velit id exercitation irure laboris proident incididunt minim anim magna eiusmod id Lorem magna.",
+//     img: "images/img-4.jpg"
+//   },
+// ];
 
 let basket = JSON.parse(localStorage.getItem("basket")) || [];
 
@@ -58,7 +58,7 @@ let genShop = () => {
     .join(""));
   };
   genShop();
-  // ! IDK Why but website feels a lot of slow, takes a lot of time to load maybe images
+  // ! IDK Why but setting id to numbers it wokring but in joy's website setting id to random words works butnot in mine
 
 //  When item increment is pressed
 let increment = (id) => {
@@ -105,7 +105,7 @@ let update = (id) => {
 // Function to calculate total cart items in CartAmount
 let calculation = () => {
   let cartIcon = document.getElementById("cartAmount");
-  cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y);
+  cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y,0);
 };
 
 
@@ -128,8 +128,4 @@ let updateQuantityDisplay = () => {
   calculation();
 };
 
-// !main.js:107 Uncaught TypeError: Reduce of empty array with no initial value
-//! at Array.reduce (<anonymous>)
-//! at calculation (main.js:107:50)
-//! at updateQuantityDisplay (main.js:124:3)
- //! at window.onload (main.js:115:3)
+
