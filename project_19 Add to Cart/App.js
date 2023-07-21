@@ -26,10 +26,12 @@ addBtnEl.addEventListener("click", () => {
 });
 
 onValue(shoppingListInDB, function (snapshot) {
-    let itemsArray = Object.entries(snapshot.val());
-    console.log(itemsArray);
-    clearShopListEl();
-    for (let i = 0; i < itemsArray.length; i++) {
+
+    if (snapshot.exists()) {
+        let itemsArray = Object.entries(snapshot.val());
+        console.log(itemsArray);
+        clearShopListEl();
+        for (let i = 0; i < itemsArray.length; i++) {
 
         let currentItem = itemsArray[i];
 
@@ -37,6 +39,9 @@ onValue(shoppingListInDB, function (snapshot) {
         let currentItemValue = currentItem[1];
 
         appendItemToShoppingListEl(currentItem);
+        } 
+    } else {
+            shoppinglistEl.innerHTML =` No Items here ... Yet `
     }
 });
 
