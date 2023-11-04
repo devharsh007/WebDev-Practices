@@ -1,11 +1,11 @@
-import Sidebar from './assets/Sidebar'
-import SignForm from './assets/SignForm'
+import Header from "./header"
+
 function App() {
 
   return (
     <>
-      {/* <Sidebar /> */}
-      <SignForm />
+      <Header />
+
     </>
   )
 }
