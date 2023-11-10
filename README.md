@@ -1,4 +1,28 @@
 # WebDev-Practices
-Web Practices I am doing So Far....
-I  need to add these Projects to my main projects folder 
-Heres it is for temp
+ The projects i made while learing Frontend Development.
+
+ Here's the list of the projects :
+ - [] Basic Website
+ - [] Background Changer
+ - [] Counter
+ - [] Shopping Cart
+ - [] Calculator
+ - [] Clock
+ - [] Sidebar Menu
+ - [] Navigation Menu bar
+ - [] Custom Alert popup
+ - [] Image slider
+ - [] Analog Clock
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+ - [] 
+
