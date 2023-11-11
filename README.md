@@ -3,7 +3,7 @@
 
  These are the Projects inspired [Youtube Nepal](https://www.youtube.com/@CodingNepal) from [Youtube Playlist](https://youtube.com/playlist?list=PLpwngcHZlPadhRwryAXw3mJWX5KH3T5L3&si=vSoc5YOa_ngLt9oC)
 
- - [] Animated Notification Button
+ - [x] Animated Notification Button
  - [] Sidebar Menu
  - [] Navigation Menu bar
  - [] Custom Alert popup
