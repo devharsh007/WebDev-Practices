@@ -9,7 +9,7 @@ export default function App() {
   const [convertedAmount, setConvertedAmount] = useState(0)
 
   const currencyInfo = useCurrencyInfo(from)
-  const options = Object.keys(currencyInfo)
+  const options = Object.keys(currencyInfo);
 
   const swap = () => {
     setFrom(to);
@@ -29,7 +29,7 @@ export default function App() {
     >
       <div className="w-full">
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
-          <form 
+          <form
             onSubmit={(e) => {
               e.preventDefault();  
               convert();
@@ -40,7 +40,7 @@ export default function App() {
                 label="From"
                 amount={amount}
                 currencyOptions={options}
-                onCurrencyChange={(currency) => { setAmount(currency) }}
+                onCurrencyChange={(Currency) => { setAmount(amount) }}
                 selectCurrency={from}
                 onAmounChange={(amount)=>setAmount(amount)}
               />
@@ -60,7 +60,7 @@ export default function App() {
                 amount={convertedAmount}
                 currencyOptions={options}
                 selectCurrency={to}
-                onCurrencyChange={(Currency) => setTo(Currency)}
+                onCurrencyChange={(Currency) => setTo(currency)}
                 amountDisable
                                 
               />

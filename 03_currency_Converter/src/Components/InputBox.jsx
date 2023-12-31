@@ -1,16 +1,16 @@
 import { useId, React } from 'react';
 
 
-function InputBox({
-  label,
-  amount,
-  onAmounChange,
-  onCurrencyChange,
-  currencyOptions = [],
-  selectCurrency = 'usd',
-  amountDisable = false,
-  currencyDisable = false,
-  className = "",
+function InputBox({     //other props to pass with input box
+  label,      // to or from label
+  amount,       // the amount to be entered by user
+  onAmounChange,      // trriger the function while amount changes
+  onCurrencyChange,     // triggers the specific function while amount changes
+  currencyOptions = [],     // holds the data of currency options rg. inr, usd, etc.
+  selectCurrency = 'usd',     // to be selected from currency options (JSON File)
+  amountDisable = false,      // for optimiaztion , feature to diable the other input
+  currencyDisable = false,      // for optimiaztion , feature to diable the other input
+  className = "",     // for user to enter other classes
 }) {
   const amountInputId = useId();
    
